@@ -10,7 +10,7 @@
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
             },
             "windows": {
-                "command": "bin/win/acme.exe -f cbm -l build/labels -o build/maino.prg code/main.asm"
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
             },
             "linux": {
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm"
@@ -31,7 +31,7 @@
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/mac/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
             },
             "windows": {
-                "command": ""
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
             },
             "linux": {
                 "command": ""
@@ -49,7 +49,7 @@
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/labels build/main.prg 2> /dev/null",
             },
             "windows": {
-                "command": ""
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
             },
             "linux": {
                 "command": ""
