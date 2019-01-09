@@ -126,7 +126,7 @@ This is the label (task name) that will show up in VSCode so that you know which
 "type": "shell"
 ````
 
-This means that the following command will be executed using the shell (terminal command). Don't change this.
+This means that the following command will be executed using the shell (terminal command). __Don't change this__.
 
 ## The Command instruction
 
@@ -178,7 +178,7 @@ The parameters
 "kind": "build",
 ````
 
-Tells VSCode that the command is a build command. Don't modify this.
+Tells VSCode that the command is a build command. __Don't modify this__.
 
 ````
 "group": {
@@ -264,7 +264,7 @@ If all worked well, VSCode should run the __tasks.json__ file, execute the __acm
 
 ![vice](https://user-images.githubusercontent.com/434355/50896184-972b4500-1408-11e9-9782-196184d6cd45.jpg)
 
-Congratulations! You've successfully compiled 8 bit assembly code!
+__Congratulations! You've successfully compiled 8 bit assembly code!__
 
 
 ## Hints & Help 
@@ -281,7 +281,7 @@ I'm happy to help you out - if I can. I do not have any Windows or Linux machine
 
 > How do I switch to another build task than the default one?
 
-Two ways: either change the ````"isDefault": true```` setting in the __tasks.json__ to the one you prefer, or in VSCode go to ````Terminal -> Run Task...```` and select a different build task.
+Two ways: either move the ````"isDefault": true```` setting in the __tasks.json__ to the one you prefer, or in VSCode go to ````Terminal -> Run Task...```` and select a different build task.
 
 > This stuff is awesome! How can I contribute?
 
@@ -289,8 +289,8 @@ Cheers!
 
 You can contribute in many ways:
 * Share this repo with other likeminded fellas in your social filter bubble. Spread the word. 8 bit hacking is easy!
-* If you're a VSCode pro knowing all about tasks or have found out something to improve this guide, create an issue or fork the repo and do a pull request. I'm happy for any help.
-* Are you producing youtube videos? A guided tutorial might be perfect for many beginners.
+* If you're a VSCode pro knowing all about tasks or have found out something to improve this guide, create an issue or fork the repo and do a pull request. I'm thankful for any help.
+* Are you producing youtube videos? A guided tutorial might be perfect for many beginners. I would make sure to link it here.
 
 ## Thanks
 
