@@ -73,6 +73,7 @@ Click on the '__tasks.json__' file. It will look like this:
             "label": "build C64 Pucrunch VICE",
             "type": "shell",
             "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null",
+            "kind": "build",
             "presentation": {
                 "clear": true
             },
@@ -82,6 +83,7 @@ Click on the '__tasks.json__' file. It will look like this:
             "label": "build C16 VICE",
             "type": "shell",
             "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/lables build/main.prg 2> /dev/null",
+            "kind": "build",
             "presentation": {
                 "clear": true
             },
@@ -154,7 +156,7 @@ bin/pucrunch build/main.prg build/main.prg
 
 Similar to the __acme compiler__, this line executes the __pucrunch packer__ which makes binary files significantly smaller. The first '__build/main.prg__' is the input file, the second '__build/main.prg__' is the output file (hence overwriting itself). You might want to check out the __Pucrunch__ documentation for further tweaking.
 
-![sign-warning-icon-png-7](https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png width="500")
+<img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="10%">
 
 ````
 /Applications/Vice/x64.app/Contents/MacOS/x64
@@ -169,6 +171,114 @@ The parameters
 ````
 
 __-moncommands build/lables__ sends the generated lables to __Vice__, making it easier to debug your code in the monitor. __build/main.prg__ is the actual program to run and __2> /dev/null__ sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
+
+
+````
+"kind": "build",
+````
+
+Tells VSCode that the command is a build command. Don't modify this.
+
+````
+"group": {
+    "kind": "build",
+    "isDefault": true
+},
+````
+
+This is the same as above with the addition that VSCode should take this as the default command when pressing __shift+command+b__.
+
+````
+"presentation": {
+        "clear": true
+},
+````
+
+This clears the VSCode terminal output. If found this less cluttered, but feel free to remove this line.
+
+
+````
+"problemMatcher": []
+````
+
+This is mainly used for error handling and we don't use this. It can probably be deleted, but I kept it in as I'm not 100% certain if it has a use.
+
+
+_Phew..._ we're finally done with all configuration. Now to the fun part!
+
+# Writing and compiling your code!
+
+Open the file __code/main.asm__. It should look like this:
+
+![asn](https://user-images.githubusercontent.com/434355/50900050-30138d80-1414-11e9-95f6-81547fea2c2d.jpg)
+
+This is a simple template for 6502 code. If you're new to this, I recommend to check out these excellent tutorials:
+
+Easy 6502 by Nick Morgan: https://skilldrick.github.io/easy6502/
+
+Dustlayer by Actraiser: https://dustlayer.com/tutorials/
+
+Just as a quick start:
+
+````
+;==========================================================
+; BASIC header
+;==========================================================
+
+* = $0801
+
+                !byte $0B, $08
+                !byte $E2                     ; BASIC line number:  $E2=2018 $E3=2019 etc       
+                !byte $07, $9E
+                !byte '0' + entry % 10000 / 1000        
+                !byte '0' + entry %  1000 /  100        
+                !byte '0' + entry %   100 /   10        
+                !byte '0' + entry %    10       
+                !byte $20, $3a, $20        
+                !byte $00, $00, $00           ; end of basic
+`````
+
+This creates a BASIC listing executing your machine program: __2018 SYS2064 :__ 
+
+````
+;==========================================================
+; CODE
+;==========================================================
+
+entry
+
+                lda #$00
+                sta $d020
+                sta $d021
+                rts
+````
+
+This is the actual program. It loads the value 0 into the accumulator and stores it in the memory locations for the border and background color, resulting in a black screen. The __rts__ exits the program.
+
+Okay, let's compile the code and watch it in Vice.
+
+__Press SHIFT + COMMAND + B__ (On Windows, it's SHIFT + CNTRL + B)
+
+If all worked well, VSCode should run the __tasks.json__ file, execute the __acme compiler__ and display your program in the __Vice Emulator__. It should look like this:
+
+![vice](https://user-images.githubusercontent.com/434355/50896184-972b4500-1408-11e9-9782-196184d6cd45.jpg)
+
+Congratulations! You've successfully compiled 8 bit assembly code!
+
+
+## Hints & Help 
+
+This section will probably grow as you report all the silly mistakes I made in my setup guide.
+
+> How do I get rid of the annoying '__the task is already active__' modal each time I build?
+It only comes up if __Vice__ is still running. Easiest would be to quit __Vice__ every time. I haven't found out yet how to handle this automatically (e.g. setting up task watchers). If you know how to do this, please let me know.
+
+> I'm stuck at [insert random problem]
+I'm happy to help you out - if I can. I do not have any Windows or Linux machine at hand though. Write an issue in github or tweet @awsm9000.
+
+> How do I switch to another build task than the default one?
+Two ways: either change the ````"isDefault": true```` setting in the __tasks.json__ to the one you prefer, or in VSCode go to ````Terminal -> Run Task...```` and select a different build task.
+
 
 
 
