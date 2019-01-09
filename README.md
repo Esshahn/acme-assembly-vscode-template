@@ -15,7 +15,8 @@ You will need the following:
 * This template
 
 ## Visual Studio Code
-First, get VSCode. It's a free editor by Microsoft. Now before you scream "nooooooo!!!!!!1", it is actually extremely good (I switched from a licenced version of Sublime Text happily), multi platform (Mac, Win, Linux) and most importantly __free__!
+First, get VSCode. It's a free editor by Microsoft. Now before you scream _"nooooooo!!!!!!1"_, it is actually extremely good (I switched from a licenced version of Sublime Text happily), multi platform (Mac, Win, Linux) and most importantly __free__!
+
 Get it here: https://code.visualstudio.com/
 
 Now let's add an extension for syntax highlighting. Click on the extension icon, enter '__acme__' in the search bar and click on the '__Acme Cross Aseembler__' extension. There's an install button on the right side where the extension is previewed.
@@ -40,15 +41,15 @@ Otherwise, get it here: http://vice-emu.sourceforge.net/index.html#download
 ## Download & configure this repository
 
 Save it anywhere you like.
-So the magic of this template lies in two things. First, all binaries needed for compiling (the ACME assembler, the Pucrunch & Exomizer packers) are included in the '__bin__' folder. Code purists might wave their fist in agony now (as it is usually not advised to check in binaries in git), but I found this to be the most comfortable way for newbies to not get lost in configuration.
+So the magic of this template lies in two things. First, all binaries needed for compiling (the ACME assembler, the Pucrunch & Exomizer packers) are included in the ````bin```` folder. Code purists might wave their fist in agony now (as it is usually not advised to check in binaries in git), but I found this to be the most comfortable way for newbies to not get lost in configuration.
 
-Second, there's a folder called '__.vscode__' with a file called '__tasks.json__'. This is where the files are send to the compiler. Depending on your operating system, the folder might be invisible, but VSCode is your friend. Drag and drop the repository folder into VSCode and it will display the folder structure on the left side, including the hidden '__.vscode__' folder.
+Second, there's a folder called ````.vscode```` with a file called ````tasks.json````. This is where the files are send to the compiler. Depending on your operating system, the folder might be invisible, but VSCode is your friend. Drag and drop the repository folder into VSCode and it will display the folder structure on the left side, including the hidden ````.vscode```` folder.
 
 ![folders](https://user-images.githubusercontent.com/434355/50896181-9692ae80-1408-11e9-88a7-6c5227c8807d.jpg)
 
 ## Configure tasks.json
 
-Click on the '__tasks.json__' file. It will look like this:
+Click on the ````tasks.json```` file. It will look like this:
 
 ````
 {
