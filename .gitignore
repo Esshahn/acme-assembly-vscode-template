@@ -1,2 +1,3 @@
-build/lables
-build/main.prg
+build/
+build/
+.DS_Store
