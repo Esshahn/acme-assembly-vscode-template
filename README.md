@@ -125,12 +125,11 @@ This is the label (task name) that will show up in VSCode so that you know which
 
 This means that the following command will be executed using the shell (terminal command). Don't change this.
 
+## The Command instruction
 
 ````
 "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null"
 ````
-
-
 
 Whoa, a lot happening here. Well, this is where all the magic happens really. This is a chain of commands (separated by '__&&__') VSCode executes for you every time you start a new build. Let's look at it in more detail:
 
@@ -147,3 +146,25 @@ The command reads like this:
 run the __acme compiler__, set the __file format__ to __cbm__ (-f cbm), create a __lables file__ in the build folder (-l build/lables), output the compiled program as __main.prg__ in the build folder (-o build/main.prg) and take __main.asm__ as the input (code/main.asm).
 
 There's a lot that you can adjust to your liking here. I recommend to check out the __acme__ quick reference for further information: https://sourceforge.net/p/acme-crossass/code-0/6/tree/trunk/docs/QuickRef.txt
+
+
+````
+bin/pucrunch build/main.prg build/main.prg
+````
+
+Similar to the __acme compiler__, this line executes the __pucrunch packer__ which makes binary files significantly smaller. The first '__build/main.prg__' is the input file, the second '__build/main.prg__' is the output file (hence it overwrites it). You might want to check out the __Pucrunch__ documentation for further tweaking.
+
+
+````
+/Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null
+````
+
+Ok this line is __extremely important__ to make your setup work. It calls __Vice__ to execute your shiny little program. As you can see this is a local path to where your __Vice__ installation resides. In this case, it's a folder called '__Vice__' in the '__Applications__' folder of __MacOS__. You need to adapt this line to your setup. I hope you get through this!
+
+The parameters 
+
+````
+-moncommands build/lables build/main.prg 2> /dev/null
+````
+
+__-moncommands build/lables__ sends the generated lables to __Vice__, making it easier to debug your code in the monitor. __build/main.prg__ is the actual program to run and __2> /dev/null__ sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
