@@ -118,6 +118,7 @@ Let's check out the second one in detail:
 This is the label (task name) that will show up in VSCode so that you know which task to choose. You can rename this to whatever you want. Name it "Compile that shit, sucker!". Have some fun while coding.
 
 
+
 ````
 "type": "shell"
 ````
@@ -129,7 +130,10 @@ This means that the following command will be executed using the shell (terminal
 "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null"
 ````
 
+
+
 Whoa, a lot happening here. Well, this is where all the magic happens really. This is a chain of commands (separated by '__&&__') VSCode executes for you every time you start a new build. Let's look at it in more detail:
+
 
 
 ````
@@ -140,6 +144,6 @@ This section starts the __acme compiler__ that resides in the __bin__ folder of 
 
 The command reads like this: 
 
-run the __acme compiler__, set the _file format__ to __cbm__ (-f cbm), create a __lables file__ in the build folder (-l build/lables), output the compiled program as __main.prg__ in the build folder (-o build/main.prg) and take __main.asm__ as the input (code/main.asm).
+run the __acme compiler__, set the __file format__ to __cbm__ (-f cbm), create a __lables file__ in the build folder (-l build/lables), output the compiled program as __main.prg__ in the build folder (-o build/main.prg) and take __main.asm__ as the input (code/main.asm).
 
-Check out the quick reference of __acme__  for further information: https://sourceforge.net/p/acme-crossass/code-0/6/tree/trunk/docs/QuickRef.txt
+There's a lot that you can adjust to your liking here. I recommend to check out the __acme__ quick reference for further information: https://sourceforge.net/p/acme-crossass/code-0/6/tree/trunk/docs/QuickRef.txt
