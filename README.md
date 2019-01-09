@@ -2,6 +2,12 @@
 
 With this basic setup you will be able to write and compile 6502 assembly code on Mac, Linux or Windows. It is by no means perfect, but it should get most beginners started and is easy to setup and configure. I'm hoping to help more people with their first attempts at writing 8 bit assembly code. Also consider this repo as an invitation to improve and share my setup. Any feedback is very welcome, share your ideas in the issues section or contribute to the repo with your pull requests. Thanks!
 
+
+<img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="10%" align="left">
+
+__Help needed: I've realized that the binaries are MacOS only. If you're using a Mac, it's all fine, but I need to implement the binaries for Windows and Linux (or you do it yourself, if you know how to do it.__
+
+
 ![ezgif-1-d82d6efadbd3](https://user-images.githubusercontent.com/434355/50902790-2d1c9b00-141c-11e9-92c1-0fcecc895906.gif)
 
 # The setup
@@ -59,7 +65,7 @@ Click on the ````tasks.json```` file. It will look like this:
         {
             "label": "build C64 VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null",
+            "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -72,7 +78,7 @@ Click on the ````tasks.json```` file. It will look like this:
         {
             "label": "build C64 Pucrunch VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null",
+            "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
             "kind": "build",
             "presentation": {
                 "clear": true
@@ -82,7 +88,7 @@ Click on the ````tasks.json```` file. It will look like this:
         {
             "label": "build C16 VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/lables build/main.prg 2> /dev/null",
+            "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/labels build/main.prg 2> /dev/null",
             "kind": "build",
             "presentation": {
                 "clear": true
@@ -105,7 +111,7 @@ Let's check out the second one in detail:
 {
     "label": "build C64 Pucrunch VICE",
     "type": "shell",
-    "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null",
+    "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
     "presentation": {
         "clear": true
     },
@@ -130,7 +136,7 @@ This means that the following command will be executed using the shell (terminal
 ## The Command instruction
 
 ````
-"command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null"
+"command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null"
 ````
 
 Whoa, a lot happening here. Well, this is where all the magic happens really. This is a chain of commands (separated by '__&&__') VSCode executes for you every time you start a new build. Let's look at it in more detail:
@@ -138,14 +144,14 @@ Whoa, a lot happening here. Well, this is where all the magic happens really. Th
 
 
 ````
-bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm
+bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm
 ````
 
 This section starts the __acme compiler__ that resides in the __bin__ folder of the repository. If you have __acme__ already installed on your system, feel free to use the path to that installation. You can delete the binary in the bin folder then.
 
 The command reads like this: 
 
-run the __acme compiler__, set the __file format__ to __cbm__ (-f cbm), create a __lables file__ in the build folder (-l build/lables), output the compiled program as ````main.prg```` in the build folder (-o build/main.prg) and take ````main.asm```` as the input (code/main.asm).
+run the __acme compiler__, set the __file format__ to __cbm__ (-f cbm), create a __labels file__ in the build folder (-l build/labels), output the compiled program as ````main.prg```` in the build folder (-o build/main.prg) and take ````main.asm```` as the input (code/main.asm).
 
 There's a lot that you can adjust to your liking here. I recommend to check out the __acme__ quick reference for further information: https://sourceforge.net/p/acme-crossass/code-0/6/tree/trunk/docs/QuickRef.txt
 
@@ -167,10 +173,10 @@ Similar to the __acme compiler__, this line executes the __pucrunch packer__ whi
 The parameters 
 
 ````
--moncommands build/lables build/main.prg 2> /dev/null
+-moncommands build/labels build/main.prg 2> /dev/null
 ````
 
-````-moncommands build/lables```` sends the generated lables to __Vice__, making it easier to debug your code in the monitor. ````build/main.prg```` is the actual program to run and ````2> /dev/null```` sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
+````-moncommands build/labels```` sends the generated labels to __Vice__, making it easier to debug your code in the monitor. ````build/main.prg```` is the actual program to run and ````2> /dev/null```` sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
 
 
 ````
