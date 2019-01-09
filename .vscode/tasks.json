@@ -6,7 +6,15 @@
         {
             "label": "build C64 VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null",
+            "osx": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+            },
+            "windows": {
+                "command": "bin/win/acme.exe -f cbm -l build/labels -o build/maino.prg code/main.asm"
+            },
+            "linux": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -19,8 +27,16 @@
         {
             "label": "build C64 Pucrunch VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null",
-            "kind": "build",
+            "osx": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/mac/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+            },
+            "windows": {
+                "command": ""
+            },
+            "linux": {
+                "command": ""
+            },
+            "group": "build",
             "presentation": {
                 "clear": true
             },
@@ -29,8 +45,16 @@
         {
             "label": "build C16 VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/lables -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/lables build/main.prg 2> /dev/null",
-            "kind": "build",
+            "osx": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/labels build/main.prg 2> /dev/null",
+            },
+            "windows": {
+                "command": ""
+            },
+            "linux": {
+                "command": ""
+            },
+            "group": "build",
             "presentation": {
                 "clear": true
             },
