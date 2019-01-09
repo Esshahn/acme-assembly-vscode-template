@@ -4,6 +4,9 @@ With this basic setup you will be able to write and compile 6502 assembly code o
 
 ![vscode](https://user-images.githubusercontent.com/434355/50896182-9692ae80-1408-11e9-81a0-bead20a5c8b2.jpg)
 
+The template example file:
+
+![ezgif-1-d82d6efadbd3](https://user-images.githubusercontent.com/434355/50902790-2d1c9b00-141c-11e9-92c1-0fcecc895906.gif)
 
 # The setup
 
