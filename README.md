@@ -154,9 +154,10 @@ bin/pucrunch build/main.prg build/main.prg
 
 Similar to the __acme compiler__, this line executes the __pucrunch packer__ which makes binary files significantly smaller. The first '__build/main.prg__' is the input file, the second '__build/main.prg__' is the output file (hence overwriting itself). You might want to check out the __Pucrunch__ documentation for further tweaking.
 
+![sign-warning-icon-png-7](https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png | width=100)
 
 ````
-/Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null
+/Applications/Vice/x64.app/Contents/MacOS/x64
 ````
 
 > __Ok this line is __extremely important__ to make your setup work. It calls __Vice__ to execute your shiny little program. As you can see this is a local path to where your __Vice__ installation resides. In this case, it's a folder called '__Vice__' in the '__Applications__' folder of __MacOS__. You need to adapt this line to your setup. I hope you get through this!__
@@ -168,3 +169,6 @@ The parameters
 ````
 
 __-moncommands build/lables__ sends the generated lables to __Vice__, making it easier to debug your code in the monitor. __build/main.prg__ is the actual program to run and __2> /dev/null__ sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
+
+
+
