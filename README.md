@@ -7,6 +7,7 @@ With this basic setup you will be able to write and compile 6502 assembly code o
 
 __Note: I've realized that the binaries are MacOS only. If you're using a Mac, it's all fine, but I need to implement the binaries for Windows and Linux (or you do it yourself, if you know how to do it.__
 
+
 ![ezgif-1-d82d6efadbd3](https://user-images.githubusercontent.com/434355/50902790-2d1c9b00-141c-11e9-92c1-0fcecc895906.gif)
 
 # The setup
