@@ -154,7 +154,7 @@ bin/pucrunch build/main.prg build/main.prg
 
 Similar to the __acme compiler__, this line executes the __pucrunch packer__ which makes binary files significantly smaller. The first '__build/main.prg__' is the input file, the second '__build/main.prg__' is the output file (hence overwriting itself). You might want to check out the __Pucrunch__ documentation for further tweaking.
 
-![sign-warning-icon-png-7](https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png | width=100)
+![sign-warning-icon-png-7](https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png width="500")
 
 ````
 /Applications/Vice/x64.app/Contents/MacOS/x64
