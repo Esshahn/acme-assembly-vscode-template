@@ -200,7 +200,7 @@ This is the same as above with the addition that VSCode should take this as the 
 },
 ````
 
-This clears the VSCode terminal output. If found this less cluttered, but feel free to remove this line.
+This clears the VSCode terminal output. I found this less cluttered, but feel free to remove this line.
 
 
 ````
