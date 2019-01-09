@@ -159,7 +159,7 @@ Similar to the __acme compiler__, this line executes the __pucrunch packer__ whi
 /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/lables build/main.prg 2> /dev/null
 ````
 
-> Ok this line is __extremely important__ to make your setup work. It calls __Vice__ to execute your shiny little program. As you can see this is a local path to where your __Vice__ installation resides. In this case, it's a folder called '__Vice__' in the '__Applications__' folder of __MacOS__. You need to adapt this line to your setup. I hope you get through this!
+> __Ok this line is __extremely important__ to make your setup work. It calls __Vice__ to execute your shiny little program. As you can see this is a local path to where your __Vice__ installation resides. In this case, it's a folder called '__Vice__' in the '__Applications__' folder of __MacOS__. You need to adapt this line to your setup. I hope you get through this!__
 
 The parameters 
 
