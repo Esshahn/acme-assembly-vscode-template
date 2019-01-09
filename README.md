@@ -145,7 +145,7 @@ This section starts the __acme compiler__ that resides in the __bin__ folder of 
 
 The command reads like this: 
 
-run the __acme compiler__, set the __file format__ to __cbm__ (-f cbm), create a __lables file__ in the build folder (-l build/lables), output the compiled program as __main.prg__ in the build folder (-o build/main.prg) and take __main.asm__ as the input (code/main.asm).
+run the __acme compiler__, set the __file format__ to __cbm__ (-f cbm), create a __lables file__ in the build folder (-l build/lables), output the compiled program as ````main.prg```` in the build folder (-o build/main.prg) and take ````main.asm```` as the input (code/main.asm).
 
 There's a lot that you can adjust to your liking here. I recommend to check out the __acme__ quick reference for further information: https://sourceforge.net/p/acme-crossass/code-0/6/tree/trunk/docs/QuickRef.txt
 
@@ -154,7 +154,7 @@ There's a lot that you can adjust to your liking here. I recommend to check out 
 bin/pucrunch build/main.prg build/main.prg
 ````
 
-Similar to the __acme compiler__, this line executes the __pucrunch packer__ which makes binary files significantly smaller. The first '__build/main.prg__' is the input file, the second '__build/main.prg__' is the output file (hence overwriting itself). You might want to check out the __Pucrunch__ documentation for further tweaking.
+Similar to the __acme compiler__, this line executes the __pucrunch packer__ which makes binary files significantly smaller. The first ````build/main.prg```` is the input file, the second ````build/main.prg```` is the output file (hence overwriting itself). You might want to check out the __Pucrunch__ documentation for further tweaking.
 
 <img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="10%">
 
@@ -170,7 +170,7 @@ The parameters
 -moncommands build/lables build/main.prg 2> /dev/null
 ````
 
-__-moncommands build/lables__ sends the generated lables to __Vice__, making it easier to debug your code in the monitor. __build/main.prg__ is the actual program to run and __2> /dev/null__ sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
+````-moncommands build/lables```` sends the generated lables to __Vice__, making it easier to debug your code in the monitor. ````build/main.prg```` is the actual program to run and ````2> /dev/null```` sends some of the terminal output text into nirvana as __Vice__ is quite chatty. You can also remove this part of the line if you want to play around with it.
 
 
 ````
@@ -186,7 +186,7 @@ Tells VSCode that the command is a build command. Don't modify this.
 },
 ````
 
-This is the same as above with the addition that VSCode should take this as the default command when pressing __shift+command+b__.
+This is the same as above with the addition that VSCode should take this as the default command when pressing _````SHIFT + COMMAND + B```` (on Mac, check out the hotkey for your system in VSCode under ````Terminal -> Run Build Task...````).
 
 ````
 "presentation": {
@@ -208,7 +208,7 @@ _Phew..._ we're finally done with all configuration. Now to the fun part!
 
 # Writing and compiling your code!
 
-Open the file __code/main.asm__. It should look like this:
+Open the file ````code/main.asm````. It should look like this:
 
 ![asn](https://user-images.githubusercontent.com/434355/50900050-30138d80-1414-11e9-95f6-81547fea2c2d.jpg)
 
@@ -238,7 +238,7 @@ Just as a quick start:
                 !byte $00, $00, $00           ; end of basic
 `````
 
-This creates a BASIC listing executing your machine program: __2018 SYS2064 :__ 
+This creates a BASIC listing executing your machine program: ````2018 SYS2064 :```` 
 
 ````
 ;==========================================================
@@ -253,11 +253,11 @@ entry
                 rts
 ````
 
-This is the actual program. It loads the value 0 into the accumulator and stores it in the memory locations for the border and background color, resulting in a black screen. The __rts__ exits the program.
+This is the actual program. It loads the value 0 into the accumulator and stores it in the memory locations for the border and background color, resulting in a black screen. The ````rts```` exits the program.
 
 Okay, let's compile the code and watch it in Vice.
 
-__Press SHIFT + COMMAND + B__ (On Windows, it's SHIFT + CNTRL + B)
+__Press ````SHIFT + COMMAND + B````__ (On Windows, it's ````SHIFT + CNTRL + B````)
 
 If all worked well, VSCode should run the __tasks.json__ file, execute the __acme compiler__ and display your program in the __Vice Emulator__. It should look like this:
 
@@ -271,14 +271,41 @@ Congratulations! You've successfully compiled 8 bit assembly code!
 This section will probably grow as you report all the silly mistakes I made in my setup guide.
 
 > How do I get rid of the annoying '__the task is already active__' modal each time I build?
+
 It only comes up if __Vice__ is still running. Easiest would be to quit __Vice__ every time. I haven't found out yet how to handle this automatically (e.g. setting up task watchers). If you know how to do this, please let me know.
 
 > I'm stuck at [insert random problem]
+
 I'm happy to help you out - if I can. I do not have any Windows or Linux machine at hand though. Write an issue in github or tweet @awsm9000.
 
 > How do I switch to another build task than the default one?
+
 Two ways: either change the ````"isDefault": true```` setting in the __tasks.json__ to the one you prefer, or in VSCode go to ````Terminal -> Run Task...```` and select a different build task.
 
+> This stuff is awesome! How can I contribute?
 
+Cheers! 
+
+You can contribute in many ways:
+* Share this repo with other likeminded fellas in your social filter bubble. Spread the word. 8 bit hacking is easy!
+* If you're a VSCode pro knowing all about tasks or have found out something to improve this guide, create an issue or fork the repo and do a pull request. I'm happy for any help.
+* Are you producing youtube videos? A guided tutorial might be perfect for many beginners.
+
+## Thanks
+
+Special thanks to Janne Hellsten (nurpax https://github.com/nurpax) for converting me to VSCode and supporting me on every step of the way. He's created many great retro projects himself, including the best PETSCII editor __Petmate__ or the JavaScript C64 compiler __c64jasm__.
+
+
+## About me
+
+I'm a hobby dev growing up in the 80s. It was great back then. Every line of code a magic door.
+
+My website: http://www.awsm.de 
+
+Follow me on twitter: http://www.twitter.com/awsm9000 
+
+I created Spritemate, the free online C64 sprite editor: http://www.spritemate.com
+
+Check out my other github projects: https://github.com/Esshahn
 
 
