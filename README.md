@@ -3,7 +3,6 @@
 __HELP needed__: I don't have a Windows or Linux machine at hand and could need some testing support.
 
 __Windows:__
-* I need the binaries for Pucrunch and Exomizer
 * The default path to call VICE from Windows is missing in tasks.json
 * Testing
 
