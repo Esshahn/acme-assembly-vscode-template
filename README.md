@@ -4,13 +4,6 @@ Help needed: I've realized that the binaries I provide are for MacOS only. If yo
 
 The ````tasks.json```` already has platform specific commands for Mac, Windows and Linux and the ````bin```` folder has subfolders for the different operating systems. If you know how to provide the correct files and have the right shell command to call them, please get in touch or best do a pull request. Thank you very much.
 
-------
-
-
-# acme-assembly-vscode-template
-
-With this basic setup you will be able to write and compile 6502 assembly code on Mac, Linux or Windows. It is by no means perfect, but it should get most beginners started and is easy to setup and configure. I'm hoping to help more people with their first attempts at writing 8 bit assembly code. Also consider this repo as an invitation to improve and share my setup. Any feedback is very welcome, share your ideas in the issues section or contribute to the repo with your pull requests. Thanks!
-
 __Status__
 
 MacOS:
@@ -27,6 +20,15 @@ Linux:
 * ACME compiling: YES
 * Pucrunch packing: YES
 * Display in VICE: NO
+
+------
+
+
+# acme-assembly-vscode-template
+
+With this basic setup you will be able to write and compile 6502 assembly code on Mac, Linux or Windows. It is by no means perfect, but it should get most beginners started and is easy to setup and configure. I'm hoping to help more people with their first attempts at writing 8 bit assembly code. Also consider this repo as an invitation to improve and share my setup. Any feedback is very welcome, share your ideas in the issues section or contribute to the repo with your pull requests. Thanks!
+
+
 
 ![ezgif-1-d82d6efadbd3](https://user-images.githubusercontent.com/434355/50902790-2d1c9b00-141c-11e9-92c1-0fcecc895906.gif)
 
