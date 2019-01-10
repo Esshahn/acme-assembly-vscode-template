@@ -233,7 +233,7 @@ The parameters
 
 
 ````
-"kind": "build",
+"group": "build",
 ````
 
 Tells VSCode that the command is a build command. __Don't modify this__.
