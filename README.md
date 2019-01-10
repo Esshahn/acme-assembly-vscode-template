@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="10%" align="left">
+<img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="3%" align="left">
 
 __HELP needed__: I don't have a Windows or Linux machine at hand and could need some testing support.
 
