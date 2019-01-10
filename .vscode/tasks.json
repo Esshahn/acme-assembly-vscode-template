@@ -13,7 +13,7 @@
                 "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
             },
             "linux": {
-                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && x64 -moncommands build/labels build/main.prg 2> /dev/null"
             },
             "group": {
                 "kind": "build",
@@ -34,7 +34,7 @@
                 "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
             },
             "linux": {
-                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/linux/pucrunch build/main.prg build/main.prg"
+                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/linux/pucrunch build/main.prg build/main.prg && x64 -moncommands build/labels build/main.prg 2> /dev/null"
             },
             "group": "build",
             "presentation": {
