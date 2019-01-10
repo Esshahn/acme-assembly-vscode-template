@@ -1,7 +1,5 @@
 <img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="10%" align="left">
 
-Help needed: I've realized that the binaries I provide are for MacOS only. If you're using a Mac, it's all fine, but I need to implement the binaries for Windows and Linux.
-
 The ````tasks.json```` already has platform specific commands for Mac, Windows and Linux and the ````bin```` folder has subfolders for the different operating systems. If you know how to provide the correct files and have the right shell command to call them, please get in touch or best do a pull request. Thank you very much.
 
 __MacOS:__
@@ -11,13 +9,13 @@ __MacOS:__
 
 __Windows:__
 * ACME compiling: IMPLEMENTED BUT NEEDS TESTING
-* Pucrunch packing: FILES MISSING
-* Display in VICE: NO
+* Pucrunch packing: NEED HELP - FILES MISSING
+* Display in VICE: NEED HELP - DEFAULT PATH MISSING
 
 __Linux:__
 * ACME compiling: YES
 * Pucrunch packing: YES
-* Display in VICE: NO
+* Display in VICE: IMPLEMENTED BUT NEEDS TESTING
 
 ------
 
