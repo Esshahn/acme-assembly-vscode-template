@@ -1,21 +1,15 @@
 <img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="10%" align="left">
 
-The ````tasks.json```` already has platform specific commands for Mac, Windows and Linux and the ````bin```` folder has subfolders for the different operating systems. If you know how to provide the correct files and have the right shell command to call them, please get in touch or best do a pull request. Thank you very much.
-
-__MacOS:__
-* ACME compiling: YES
-* Pucrunch packing: YES
-* Display in VICE: YES
+__HELP needed__: I don't have a Windows or Linux machine at hand and could need some testing support.
 
 __Windows:__
-* ACME compiling: IMPLEMENTED BUT NEEDS TESTING
-* Pucrunch packing: NEED HELP - FILES MISSING
-* Display in VICE: NEED HELP - DEFAULT PATH MISSING
+* I need the binaries for Pucrunch and Exomizer
+* The default path to call VICE from Windows is missing in tasks.json
+* Testing
 
 __Linux:__
-* ACME compiling: YES
-* Pucrunch packing: YES
-* Display in VICE: IMPLEMENTED BUT NEEDS TESTING
+* All files are provided and I've installed VICE via App Store and apt-get. Both versions work, but I can't seem to call them correctly from tasks.json
+* Testing
 
 ------
 
