@@ -4,19 +4,17 @@ Help needed: I've realized that the binaries I provide are for MacOS only. If yo
 
 The ````tasks.json```` already has platform specific commands for Mac, Windows and Linux and the ````bin```` folder has subfolders for the different operating systems. If you know how to provide the correct files and have the right shell command to call them, please get in touch or best do a pull request. Thank you very much.
 
-__Status__
-
-MacOS:
+__MacOS:__
 * ACME compiling: YES
 * Pucrunch packing: YES
 * Display in VICE: YES
 
-Windows:
+__Windows:__
 * ACME compiling: IMPLEMENTED BUT NEEDS TESTING
 * Pucrunch packing: FILES MISSING
 * Display in VICE: NO
 
-Linux:
+__Linux:__
 * ACME compiling: YES
 * Pucrunch packing: YES
 * Display in VICE: NO
