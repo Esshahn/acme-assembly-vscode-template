@@ -22,7 +22,16 @@
             "presentation": {
                 "clear": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "owner": "acme",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(Error - File\\s+(.*), line (\\d+) (\\(Zone .*\\))?:\\s+(.*))$",
+                    "file": 2,
+                    "location": 3,
+                    "message": 1
+                }
+            }
         },
         {
             "label": "build C64 Pucrunch VICE",
@@ -40,7 +49,16 @@
             "presentation": {
                 "clear": true
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "owner": "acme",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(Error - File\\s+(.*), line (\\d+) (\\(Zone .*\\))?:\\s+(.*))$",
+                    "file": 2,
+                    "location": 3,
+                    "message": 1
+                }
+            }
         },
         {
             "label": "build C16 VICE",

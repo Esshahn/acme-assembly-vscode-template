@@ -91,8 +91,7 @@ Click on the ````tasks.json```` file. It will look like this:
             },
             "presentation": {
                 "clear": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "build C64 Pucrunch VICE",
@@ -109,8 +108,7 @@ Click on the ````tasks.json```` file. It will look like this:
             "group": "build",
             "presentation": {
                 "clear": true
-            },
-            "problemMatcher": []
+            }
         },
         {
             "label": "build C16 VICE",
@@ -127,8 +125,7 @@ Click on the ````tasks.json```` file. It will look like this:
             "group": "build",
             "presentation": {
                 "clear": true
-            },
-            "problemMatcher": []
+            }
         }
     ]
 }
@@ -159,7 +156,6 @@ Let's check out the second one in detail:
     "presentation": {
         "clear": true
     },
-    "problemMatcher": []
 }
 `````
 
@@ -250,11 +246,12 @@ This clears the VSCode terminal output. I found this less cluttered, but feel fr
 
 
 ````
-"problemMatcher": []
+"problemMatcher": { .. details omitted ... }
 ````
 
-This is mainly used for error handling and we don't use this. It can probably be deleted, but I kept it in as I'm not 100% certain if it has a use.
+This teaches VSCode to parse the error messages reported by the ACME compiler.  This integrates errors with VSCode so that you can see current compilation errors under the Problems tab.
 
+You can use `F8` to cycle through errors within VSCode.
 
 _Phew..._ we're finally done with all configuration. Now to the fun part!
 
