@@ -346,6 +346,8 @@ Special thanks to Janne Hellsten (nurpax https://github.com/nurpax) for converti
 
 Thanks to SpiderJ for providing the Linux binaries.
 
+Thanks to dmc6297 for the windows configuration.
+
 
 ## About me
 
