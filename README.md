@@ -64,7 +64,7 @@ Otherwise, get it here: http://vice-emu.sourceforge.net/index.html#download
 ## Download & configure this repository
 
 Save it anywhere you like.
-So the magic of this template lies in two things. First, all binaries needed for compiling (the ACME assembler, the Pucrunch & Exomizer packers) are included in the ````bin```` folder. Code purists might wave their fist in agony now (as it is usually not advised to check in binaries in git), but I found this to be the most comfortable way for newbies to not get lost in configuration.
+So the magic of this template lies in two things. First, all binaries needed for compiling (the ACME assembler, the Pucrunch & Exomizer packers) are included in the ````bin```` folder. Code purists might wave their fist in agony now (as it is usually not advised to check in binaries in git), but I found this to be the most comfortable way for newbies to not get lost in configuration. There are folders for Mac, Windows and Linux binaries.
 
 Second, there's a folder called ````.vscode```` with a file called ````tasks.json````. This is where the files are send to the compiler. Depending on your operating system, the folder might be invisible, but VSCode is your friend. Drag and drop the repository folder into VSCode and it will display the folder structure on the left side, including the hidden ````.vscode```` folder.
 
@@ -83,7 +83,15 @@ Click on the ````tasks.json```` file. It will look like this:
         {
             "label": "build C64 VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+            "osx": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+            },
+            "windows": {
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+            },
+            "linux": {
+                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && x64 -moncommands build/labels build/main.prg 2> /dev/null"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -96,8 +104,16 @@ Click on the ````tasks.json```` file. It will look like this:
         {
             "label": "build C64 Pucrunch VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
-            "kind": "build",
+            "osx": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/mac/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+            },
+            "windows": {
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+            },
+            "linux": {
+                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/linux/pucrunch build/main.prg build/main.prg && x64 -moncommands build/labels build/main.prg 2> /dev/null"
+            },
+            "group": "build",
             "presentation": {
                 "clear": true
             },
@@ -106,8 +122,16 @@ Click on the ````tasks.json```` file. It will look like this:
         {
             "label": "build C16 VICE",
             "type": "shell",
-            "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/labels build/main.prg 2> /dev/null",
-            "kind": "build",
+            "osx": {
+                "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/labels build/main.prg 2> /dev/null",
+            },
+            "windows": {
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+            },
+            "linux": {
+                "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+            },
+            "group": "build",
             "presentation": {
                 "clear": true
             },
@@ -129,7 +153,16 @@ Let's check out the second one in detail:
 {
     "label": "build C64 Pucrunch VICE",
     "type": "shell",
-    "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+    "osx": {
+        "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/mac/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
+    },
+    "windows": {
+        "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+    },
+    "linux": {
+        "command": "./bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/linux/pucrunch build/main.prg build/main.prg && x64 -moncommands build/labels build/main.prg 2> /dev/null"
+    },
+    "group": "build",
     "presentation": {
         "clear": true
     },
@@ -152,6 +185,8 @@ This is the label (task name) that will show up in VSCode so that you know which
 This means that the following command will be executed using the shell (terminal command). __Don't change this__.
 
 ## The Command instruction
+
+The shell commands as well as the binaries are specific for each operating system. Luckily, VSCode let's us define that easily by using either "osx", "windows" or "linux" as the identifier. If you want a cleaner setup, you can delete the lines that contain information for the OS you're not using. You can even delete the OS subfolders in the `````bin````` folder if you like.
 
 ````
 "command": "bin/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null"
