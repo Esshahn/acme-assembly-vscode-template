@@ -70,7 +70,7 @@
                 "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && C:/tools/vice/xplus4.exe -moncommands build/labels build/main.prg"
             },
             "linux": {
-                "command": "bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm"
+                "command": "bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && xplus4 -moncommands build/labels build/main.prg 2> /dev/null"
             },
             "group": "build",
             "presentation": {
