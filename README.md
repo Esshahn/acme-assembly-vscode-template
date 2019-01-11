@@ -2,10 +2,6 @@
 
 __HELP needed__: I don't have a Windows or Linux machine at hand and could need some testing support.
 
-__Windows:__
-* The default path to call VICE from Windows is missing in tasks.json
-* Testing
-
 __Linux:__
 * All files are provided and I've installed VICE via App Store and apt-get. Both versions work, but I can't seem to call them correctly from tasks.json
 * Testing
