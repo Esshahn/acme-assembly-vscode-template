@@ -10,7 +10,7 @@
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
             },
             "windows": {
-                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm ; C:/Tools/WinVICE/x64.exe -moncommands build/labels build/main.prg"
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && C:/tools/vice/x64.exe -moncommands build/labels build/main.prg"
             },
             "linux": {
                 "command": "bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && x64 -moncommands build/labels build/main.prg 2> /dev/null"
@@ -40,7 +40,7 @@
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/mac/pucrunch build/main.prg build/main.prg && /Applications/Vice/x64.app/Contents/MacOS/x64 -moncommands build/labels build/main.prg 2> /dev/null",
             },
             "windows": {
-                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm ; bin/win/pucrunch build/main.prg build/main.prg ; C:/Tools/WinVICE/x64.exe -moncommands build/labels build/main.prg",
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin\\win\\pucrunch build/main.prg build/main.prg && C:/tools/vice/x64.exe -moncommands build/labels build/main.prg",
             },
             "linux": {
                 "command": "bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm && bin/linux/pucrunch build/main.prg build/main.prg && x64 -moncommands build/labels build/main.prg 2> /dev/null"
@@ -67,7 +67,7 @@
                 "command": "bin/mac/acme -f cbm -l build/labels -o build/main.prg code/main.asm && /Applications/Vice/xplus4.app/Contents/MacOS/xplus4 -moncommands build/labels build/main.prg 2> /dev/null",
             },
             "windows": {
-                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm ; C:/Tools/WinVICE/xplus4.exe -moncommands build/labels build/main.prg"
+                "command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && C:/tools/vice/xplus4.exe -moncommands build/labels build/main.prg"
             },
             "linux": {
                 "command": "bin/linux/acme -f cbm -l build/labels -o build/main.prg code/main.asm"
