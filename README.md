@@ -1,13 +1,3 @@
-<img src="https://user-images.githubusercontent.com/434355/50898647-183a0a80-1410-11e9-866d-de5140a1bbf0.png" width="3%" align="left">
-
-__HELP needed__: I don't have a Windows or Linux machine at hand and could need some testing support.
-
-__Linux:__
-* All files are provided and I've installed VICE via App Store and apt-get. Both versions work, but I can't seem to call them correctly from tasks.json
-* Testing
-
-------
-
 
 # acme-assembly-vscode-template
 
