@@ -344,6 +344,8 @@ Thanks to SpiderJ for providing the Linux binaries.
 
 Thanks to dmc6297 for the windows configuration.
 
+Thanks to nurpax for adding a problem matcher so that error messages from ACME are displayed in VSCode now - awesome.
+
 
 ## About me
 
