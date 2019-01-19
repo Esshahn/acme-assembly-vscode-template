@@ -1,1 +1,7 @@
-	entry	= $810	; ?
+	BGCOLOR	= $ff15
+	BASIC	= $1001
+	BORDERCOLOR	= $ff19
+	SCREENRAM	= $c00
+	hello	= $1024	; ?
+	character_loop	= $1019
+	entry	= $100d	; ?
