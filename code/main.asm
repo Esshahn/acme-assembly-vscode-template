@@ -16,18 +16,23 @@
 ; Depending on your target machine
 ;==========================================================
 
-; C64
-BGCOLOR       = $d020
-BORDERCOLOR   = $d021
-BASIC         = $0801
-SCREENRAM     = $0400
-
 ; C16, C116, Plus/4
 ;BGCOLOR      = $ff15
 ;BORDERCOLOR  = $ff19
 ;BASIC        = $1001
 ;SCREENRAM    = $0c00
 
+; C128
+;BGCOLOR       = $d020
+;BORDERCOLOR   = $d021
+;BASIC         = $1c01
+;SCREENRAM     = $0400
+
+; C64
+BGCOLOR       = $d020
+BORDERCOLOR   = $d021
+BASIC         = $0801
+SCREENRAM     = $0400
 
 ;==========================================================
 ; BASIC header
