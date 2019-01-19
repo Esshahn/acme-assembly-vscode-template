@@ -245,7 +245,7 @@ _Phew..._ we're finally done with all configuration. Now to the fun part!
 
 Open the file ````code/main.asm````. It should look like this:
 
-![asn](https://user-images.githubusercontent.com/434355/50900050-30138d80-1414-11e9-95f6-81547fea2c2d.jpg)
+![asn](https://user-images.githubusercontent.com/434355/51430078-f6adff80-1c15-11e9-87b5-afab0b876622.jpg)
 
 This is a simple template for 6502 code. If you're new to this, I recommend to check out these excellent tutorials:
 
@@ -302,7 +302,7 @@ I've created example labels for different memory addresses of the Commodore 64, 
                 !byte $00, $00, $00           ; end of basic
 `````
 
-This creates a BASIC listing executing your machine program: ````2019 SYS2061 :```` 
+This creates a BASIC listing executing your machine program: ````2019 SYS2061```` 
 
 ````
 ;==========================================================
