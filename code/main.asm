@@ -56,7 +56,7 @@ SCREENRAM     = $0400
 
 entry
 
-                lda #$0b                ; the color value
+                lda #$00                ; the color value
                 sta BGCOLOR             ; change background color
                 sta BORDERCOLOR         ; change border color
 
