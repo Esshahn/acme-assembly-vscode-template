@@ -16,6 +16,12 @@
 ; Depending on your target machine
 ;==========================================================
 
+; VC20
+;BGCOLOR       = $900f
+;BORDERCOLOR   = $900f
+;BASIC         = $1001
+;SCREENRAM     = $1e00
+
 ; C16, C116, Plus/4
 ;BGCOLOR      = $ff15
 ;BORDERCOLOR  = $ff19
