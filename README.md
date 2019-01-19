@@ -257,23 +257,52 @@ Just as a quick start:
 
 ````
 ;==========================================================
+; LABELS
+; Comment or uncomment the lines below 
+; Depending on your target machine
+;==========================================================
+
+; C16, C116, Plus/4
+;BGCOLOR      = $ff15
+;BORDERCOLOR  = $ff19
+;BASIC        = $1001
+;SCREENRAM    = $0c00
+
+; C128
+;BGCOLOR       = $d020
+;BORDERCOLOR   = $d021
+;BASIC         = $1c01
+;SCREENRAM     = $0400
+
+; C64
+BGCOLOR       = $d020
+BORDERCOLOR   = $d021
+BASIC         = $0801
+SCREENRAM     = $0400
+````
+
+Labels are a great way to keep your code readable and help you manage compiling to different platforms. A label in this case is just a synonyme, e.g. the compiler replaces each occurrance of BGCOLOR with $d020.
+
+I've created example labels for different memory addresses of the Commodore 64, the Commodore 128 and the Commodore 16, 116, Plus/4. You can comment out or delete the ones that you don't need.
+
+````
+;==========================================================
 ; BASIC header
 ;==========================================================
 
-* = $0801
+* = BASIC
 
-                !byte $0B, $08
-                !byte $E2                     ; BASIC line number:  $E2=2018 $E3=2019 etc       
+                !byte $0b, $08
+                !byte $E3                     ; BASIC line number:  $E2=2018 $E3=2019 etc       
                 !byte $07, $9E
                 !byte '0' + entry % 10000 / 1000        
                 !byte '0' + entry %  1000 /  100        
                 !byte '0' + entry %   100 /   10        
-                !byte '0' + entry %    10       
-                !byte $20, $3a, $20        
+                !byte '0' + entry %    10             
                 !byte $00, $00, $00           ; end of basic
 `````
 
-This creates a BASIC listing executing your machine program: ````2018 SYS2064 :```` 
+This creates a BASIC listing executing your machine program: ````2019 SYS2061 :```` 
 
 ````
 ;==========================================================
@@ -282,13 +311,26 @@ This creates a BASIC listing executing your machine program: ````2018 SYS2064 :`
 
 entry
 
-                lda #$00
-                sta $d020
-                sta $d021
-                rts
+                lda #$00                ; the color value
+                sta BGCOLOR             ; change background color
+                sta BORDERCOLOR         ; change border color
+
+                ldy #$0c                ; the string "hello world!" has 12 (= $0c) characters
+                ldx #$00                ; start at position 0 of the string
+
+character_loop
+
+                lda hello,x             ; load character number x of the string
+                sta SCREENRAM,x         ; save it at position x of the screen ram
+                inx                     ; increment x by 1
+                dey                     ; decrement y by 1
+                bne character_loop      ; is y positive? then repeat
+                rts                     ; exit the program
+
+hello           !scr "hello world!"     ; our string to display
 ````
 
-This is the actual program. It loads the value 0 into the accumulator and stores it in the memory locations for the border and background color, resulting in a black screen. The ````rts```` exits the program.
+This is the actual program. It loads the value 0 into the accumulator and stores it in the memory locations for the border and background color, resulting in a black screen. Next, it reads the content at position 'hello' character by character and outputs it on the screen, resulting in 'hello world!". The ````rts```` exits the program.
 
 Okay, let's compile the code and watch it in Vice.
 
