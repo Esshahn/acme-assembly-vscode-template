@@ -1,6 +1,15 @@
 
 # acme-assembly-vscode-template
 
+## At a glance
+
+* VSCode template that helps you compile 8 bit assembly code with ACME
+* Works on Mac, Linux and Windows
+* Binaries of ACME, Pucrunch & Exomizer included
+* Compiled file is displayed in VICE emulator
+* Example file for Commodore 64, Commodore 128 and Commodore 16, 116 & Plus/4
+* Very easy to adapt for other platforms (send me your PR's)
+
 With this basic setup you will be able to write and compile 6502 assembly code on Mac, Linux or Windows. It is by no means perfect, but it should get most beginners started and is easy to setup and configure. I'm hoping to help more people with their first attempts at writing 8 bit assembly code. Also consider this repo as an invitation to improve and share my setup. Any feedback is very welcome, share your ideas in the issues section or contribute to the repo with your pull requests. Thanks!
 
 
