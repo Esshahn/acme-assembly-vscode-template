@@ -367,8 +367,20 @@ Some Windows Users had issues with the Command Line Chaining and found out that 
 try
 
 ````
-"command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && C:/tools/vice/x64.exe -moncommands build/labels build/main.prg"
+"command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm ; C:/tools/vice/x64.exe -moncommands build/labels build/main.prg"
 ````
+
+### How to use the file name of your asm file instead of "main" for the compiled PRG
+
+If you want to compile e.g. "mycoolcode.asm" to "mycoolcode.prg" instead of "main.prg", you can do that by using a VSCode variable __${fileBasenameNoExtension}__, Example:
+
+````
+"command": "bin/win/acme -f cbm -l build/labels -o build/${fileBasenameNoExtension}.prg code/${fileBasenameNoExtension}.asm ; D:/Studio/Vice64/x128.exe -moncommands build/labels build/${fileBasenameNoExtension}.prg"
+````
+
+Be aware though that if you have multiple asm files you generally want to compile the one that hosts the _includes_, not neccessarily the one you're currently working in (e.g. "spritesconfig.asm" (thx Chris Toas)
+
+## FAQ
 
 > How do I get rid of the annoying '__the task is already active__' modal each time I build?
 
