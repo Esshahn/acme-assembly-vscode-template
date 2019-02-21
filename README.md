@@ -356,6 +356,20 @@ __Congratulations! You've successfully compiled 8 bit assembly code!__
 
 This section will probably grow as you report all the silly mistakes I made in my setup guide.
 
+### Windows Command Line Syntax
+
+Some Windows Users had issues with the Command Line Chaining and found out that replacing the __&&__ with __;__ works. So instead of
+
+````
+"command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && C:/tools/vice/x64.exe -moncommands build/labels build/main.prg"
+````
+
+try
+
+````
+"command": "bin\\win\\acme -f cbm -l build/labels -o build/main.prg code/main.asm && C:/tools/vice/x64.exe -moncommands build/labels build/main.prg"
+````
+
 > How do I get rid of the annoying '__the task is already active__' modal each time I build?
 
 It only comes up if __Vice__ is still running. Easiest would be to quit __Vice__ every time. I haven't found out yet how to handle this automatically (e.g. setting up task watchers). If you know how to do this, please let me know.
