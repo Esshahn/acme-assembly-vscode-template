@@ -372,13 +372,13 @@ try
 
 ### How to use the file name of your asm file instead of "main" for the compiled PRG
 
-If you want to compile e.g. "mycoolcode.asm" to "mycoolcode.prg" instead of "main.prg", you can do that by using a VSCode variable __${fileBasenameNoExtension}__, Example:
+If you want to compile e.g. "mycoolcode.asm" to "mycoolcode.prg" instead of "main.prg", you can do that by using a VSCode variable __${fileBasenameNoExtension}__, for example:
 
 ````
 "command": "bin/win/acme -f cbm -l build/labels -o build/${fileBasenameNoExtension}.prg code/${fileBasenameNoExtension}.asm ; D:/Studio/Vice64/x128.exe -moncommands build/labels build/${fileBasenameNoExtension}.prg"
 ````
 
-Be aware though that if you have multiple asm files you generally want to compile the one that hosts the _includes_, not neccessarily the one you're currently working in (e.g. "spritesconfig.asm" (thx Chris Toas)
+Be aware though that if you have multiple asm files you generally want to compile the one that hosts the _includes_, not neccessarily the one you're currently working in (e.g. "spritesconfig.asm").
 
 ## FAQ
 
@@ -412,6 +412,8 @@ Thanks to SpiderJ for providing the Linux binaries.
 Thanks to dmc6297 for the windows configuration.
 
 Thanks to nurpax for adding a problem matcher so that error messages from ACME are displayed in VSCode now - awesome.
+
+Thanks to Chris Toast for additonal some settings options.
 
 
 ## About me
