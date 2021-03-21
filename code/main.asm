@@ -66,16 +66,14 @@ entry
                 sta BGCOLOR             ; change background color
                 sta BORDERCOLOR         ; change border color
 
-                ldy #$0c                ; the string "hello world!" has 12 (= $0c) characters
-                ldx #$00                ; start at position 0 of the string
+                ldy #$0b                ; the string "hello world!" has 12 (= $0b) characters
 
 character_loop
 
-                lda hello,x             ; load character number x of the string
-                sta SCREENRAM,x         ; save it at position x of the screen ram
-                inx                     ; increment x by 1
+                lda hello,y             ; load character number y of the string
+                sta SCREENRAM,y         ; save it at position y of the screen ram
                 dey                     ; decrement y by 1
-                bne character_loop      ; is y positive? then repeat
+                bpl character_loop      ; is y positive? then repeat
                 rts                     ; exit the program
 
 hello           !scr "hello world!"     ; our string to display
